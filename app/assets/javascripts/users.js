@@ -1,2 +1,13 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(document).ready( function(){
+
+  $.ajax({
+    url: 'http://json-server.devpointlabs.com/api/v1/users',
+    method: 'GET',
+    dataType: 'JSON'
+  }).done( function(users){
+    console.log(users)
+  }).fail( function(users){
+    console.log('fail')
+  })
+
+});
