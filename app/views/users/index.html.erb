@@ -2,5 +2,7 @@
 <hr>
 <button class="users-display"><h5> All users </h5></button>
 <br>
-<button class="users-create"><h5> New user </h5></button>
+<h4><%= button_to 'New user', new_user_path, method: :get %></h4>
 <hr>
+<ul class="user-list">
+</ul>
