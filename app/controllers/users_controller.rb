@@ -14,6 +14,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def new
+    @user = User.new
+  end
+
   def update
     if @user.update(user_params)
       render json: @user

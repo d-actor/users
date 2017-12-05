@@ -1,4 +1,7 @@
 $(document).ready( function(){
+
+  var showForm = false;
+
   $('.users-display').click( function(){
     $.ajax({
       url: 'http://json-server.devpointlabs.com/api/v1/users',
@@ -13,20 +16,25 @@ $(document).ready( function(){
     });
   });
 
-  $('#create-user').click( function(){
+  $(document).on('click', '#create-user', function(){
+    var $firstName = $('#first-name')
+    var $lastName = $('#last-name')
+    var $phoneNumber = $('#phone-number')
+    var data = {
+      'user[first_name]': $firstName.val(),
+      'user[last_name]': $lastName.val(),
+      'user[phone_number]': $phoneNumber.val()
+    }
     $.ajax({
       url: 'http://json-server.devpointlabs.com/api/v1/users',
-      method: 'POST',
-      data: {
-        user[first_name] $('#first-name')
-        user[last_name] $('#last-name')
-        user[phone_number] $('#phone-number')
-      }
-      dataType: 'JSON'
+      type: 'POST',
+      dataType: 'JSON',
+      data: data
     }).done( function(){
-      console.log("i did it")
-      alert('Done son.')
-    });
+      console.log('boom city')
+    }).fail( function(){
+      alert('Failed Transmission!')
+    })
   });
 
 });
