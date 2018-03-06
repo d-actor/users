@@ -1,7 +1,5 @@
 $(document).ready( function(){
 
-  var showForm = false;
-
   $('.users-display').click( function(){
     $.ajax({
       url: 'http://json-server.devpointlabs.com/api/v1/users',
